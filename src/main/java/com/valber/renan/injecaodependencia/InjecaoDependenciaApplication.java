@@ -1,9 +1,6 @@
 package com.valber.renan.injecaodependencia;
 
-import com.valber.renan.injecaodependencia.controllers.ConstructorInjectedController;
-import com.valber.renan.injecaodependencia.controllers.MyController;
-import com.valber.renan.injecaodependencia.controllers.PropertyInjectedController;
-import com.valber.renan.injecaodependencia.controllers.SetterInjectedController;
+import com.valber.renan.injecaodependencia.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,8 +11,10 @@ public class InjecaoDependenciaApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(InjecaoDependenciaApplication.class, args);
 
-		MyController myController = (MyController) ctx.getBean("myController");
+		I18NController i18NController = (I18NController) ctx.getBean("i18NController");
+		System.out.println(i18NController.sayHello());
 
+		MyController myController = (MyController) ctx.getBean("myController");
 
 		System.out.println("----------Primary Bean");
 		System.out.println(myController.sayHello());;
