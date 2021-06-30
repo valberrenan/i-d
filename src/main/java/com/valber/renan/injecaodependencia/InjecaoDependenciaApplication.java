@@ -11,6 +11,10 @@ public class InjecaoDependenciaApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(InjecaoDependenciaApplication.class, args);
 
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("----- The Best Pet Is ---");
+		System.out.println(petController.whichPetIsTheBest());
+
 		I18NController i18NController = (I18NController) ctx.getBean("i18NController");
 		System.out.println(i18NController.sayHello());
 
